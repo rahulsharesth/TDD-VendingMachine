@@ -23,6 +23,8 @@ public class VendingMachineTest {
     public void setup() {
         vendingMachine = new VendingMachine();
         CanType.SEVENUP.setAvaliable(false);
+        final Can loadPepsiCan = new Can(CanType.PEPSI, 100);
+        vendingMachine.load(loadPepsiCan);
     }
 
     @Test
@@ -32,14 +34,21 @@ public class VendingMachineTest {
     }
 
     @Test
-    public void should_return_pepsi() {
+    public void should_return_pepsi() {       
         Can can = vendingMachine.getCan(CanType.PEPSI, 100);
         assertEquals(CanType.PEPSI, can.getCanType());
     }
 
     @Test
     public void should_return_change() {
-        double change = vendingMachine.getChange(CanType.PEPSI, 100);
+        Can can = vendingMachine.getCan(CanType.PEPSI, 120);
+        double change = vendingMachine.getChange();
+        assertEquals(change, 20, 0);
+    }
+    
+    @Test
+    public void should_return_no_change() {
+        double change = vendingMachine.getChange();
         assertEquals(change, 0, 0);
     }
 
