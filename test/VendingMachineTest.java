@@ -40,8 +40,14 @@ public class VendingMachineTest {
     }
 
     @Test
+    public void should_not_return_sevenup() {       
+        Can can = vendingMachine.getCan(CanType.SEVENUP, 100);
+        assertNull(can);
+    }
+    
+    @Test
     public void should_return_change() {
-        Can can = vendingMachine.getCan(CanType.PEPSI, 120);
+        final Can can = vendingMachine.getCan(CanType.PEPSI, 120);
         double change = vendingMachine.getChange();
         assertEquals(change, 20, 0);
     }
