@@ -13,4 +13,9 @@ public class VendingMachine {
         return new Can(canType, price);
     }
 
+    public double getChange(CanType pepsi, int i) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
 }
