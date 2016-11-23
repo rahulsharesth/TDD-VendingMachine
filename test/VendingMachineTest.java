@@ -21,17 +21,12 @@ public class VendingMachineTest {
 
     @Before
     public void setup() {
+        Stock stock = new Stock(pepsiCan, 10);
         vendingMachine = new VendingMachine();
-        CanType.SEVENUP.setAvaliable(false);
-        final Can loadPepsiCan = new Can(CanType.PEPSI, 100);
-        vendingMachine.load(loadPepsiCan);
+        final Can pepsiCan = new Can(CanType.PEPSI, 100);
+        vendingMachine.load(pepsiCan, stock);
     }
 
-    @Test
-    public void should_return_nothing() {
-        Can can = vendingMachine.getCan(CanType.SEVENUP, 0);
-        assertNull(can);
-    }
 
     @Test
     public void should_return_pepsi() {       
