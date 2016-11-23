@@ -3,18 +3,18 @@ import java.util.Map;
 
 public class VendingMachine {
 
-    private Map<CanType, Can> cans = new HashMap<CanType, Can>();;
+    private Map<CanType, Stock> stocks = new HashMap<CanType, Stock>();;
     private double change;
 
     public void load(final Can can, final Stock stock) {
-        this.cans.put(can.getCanType(), can);
+        this.stocks.put(can.getCanType(), stock);
     }
 
     public Can getCan(CanType canType, double price) {
-        if (price == 0 || !cans.containsKey(canType) ||  cans.get(canType).getPrice() >  price) {
+        if (price == 0 || !stocks.containsKey(canType) || stocks.get(canType).getCan().getPrice() > price) {
             return null;
         }
-        this.change = price - cans.get(canType).getPrice();
+        this.change = price - stocks.get(canType).getCan().getPrice();
         return new Can(canType, price);
     }
 

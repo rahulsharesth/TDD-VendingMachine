@@ -21,9 +21,9 @@ public class VendingMachineTest {
 
     @Before
     public void setup() {
-        Stock stock = new Stock(pepsiCan, 10);
         vendingMachine = new VendingMachine();
         final Can pepsiCan = new Can(CanType.PEPSI, 100);
+        Stock stock = new Stock(pepsiCan, 10);
         vendingMachine.load(pepsiCan, stock);
     }
 
