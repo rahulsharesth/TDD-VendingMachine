@@ -18,7 +18,6 @@ import org.junit.Test;
 public class VendingMachineTest {
 
     private VendingMachine vendingMachine = null;
-   
 
     @Before
     public void setup() {
@@ -41,8 +40,7 @@ public class VendingMachineTest {
     @Test
     public void should_return_change() {
         double change = vendingMachine.getChange(CanType.PEPSI, 100);
-        assertEquals(change,0,0);
+        assertEquals(change, 0, 0);
     }
 
-   
 }
