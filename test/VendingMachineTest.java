@@ -41,7 +41,7 @@ public class VendingMachineTest {
     @Test
     public void should_return_change() {
         double change = vendingMachine.getChange(CanType.PEPSI, 100);
-        assertNull(change);
+        assertEquals(change,0,0);
     }
 
    
