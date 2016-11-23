@@ -14,6 +14,7 @@ public class VendingMachine {
         if (price == 0 || !stocks.containsKey(canType) || stocks.get(canType).getCan().getPrice() > price) {
             return null;
         }
+        stocks.get(canType).setCount(stocks.get(canType).getCount() - 1);
         this.change = price - stocks.get(canType).getCan().getPrice();
         return new Can(canType, price);
     }
